@@ -198,6 +198,66 @@ const menuItems: MenuItem[] = [
     category: "desserts",
     dietary: ["vegetarian", "gluten-free"],
     ingredients: ["Heavy cream", "Vanilla", "Gelatin", "Berry compote", "Fresh mint"]
+  },
+  {
+    id: "19",
+    name: "Octopus Carpaccio",
+    description: "Thinly sliced octopus with lemon, capers, and herb oil",
+    price: "$26",
+    image: "https://images.unsplash.com/photo-1618094428242-1debbddce8ae?w=500",
+    category: "starters",
+    dietary: ["gluten-free"],
+    ingredients: ["Fresh octopus", "Lemon", "Capers", "Herb oil", "Microgreens"]
+  },
+  {
+    id: "20",
+    name: "Wagyu Beef Tenderloin",
+    description: "Premium wagyu beef with truffle potato purée and red wine jus",
+    price: "$68",
+    image: "https://images.unsplash.com/photo-1558030006-450675393462?w=500",
+    category: "mains",
+    dietary: ["gluten-free"],
+    ingredients: ["Wagyu beef", "Truffle potato purée", "Red wine jus", "Seasonal vegetables"]
+  },
+  {
+    id: "21",
+    name: "Lavender Honey Cheesecake",
+    description: "Creamy cheesecake infused with lavender and drizzled with local honey",
+    price: "$18",
+    image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500",
+    category: "desserts",
+    dietary: ["vegetarian"],
+    ingredients: ["Cream cheese", "Lavender", "Local honey", "Graham crust", "Fresh berries"]
+  },
+  {
+    id: "22",
+    name: "Smoked Salmon Blini",
+    description: "House-smoked salmon on potato blini with crème fraîche and caviar",
+    price: "$32",
+    image: "https://images.unsplash.com/photo-1609501676725-7186f932c6e8?w=500",
+    category: "starters",
+    dietary: [],
+    ingredients: ["Smoked salmon", "Potato blini", "Crème fraîche", "Caviar", "Chives"]
+  },
+  {
+    id: "23",
+    name: "Osso Buco Milanese",
+    description: "Braised veal shanks with saffron risotto and gremolata",
+    price: "$54",
+    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=500",
+    category: "mains",
+    dietary: ["gluten-free"],
+    ingredients: ["Veal shanks", "Saffron risotto", "Gremolata", "White wine", "Vegetables"]
+  },
+  {
+    id: "24",
+    name: "Dark Chocolate Tart",
+    description: "Rich dark chocolate tart with gold leaf and raspberry coulis",
+    price: "$19",
+    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500",
+    category: "desserts",
+    dietary: ["vegetarian"],
+    ingredients: ["Dark chocolate", "Pastry shell", "Gold leaf", "Raspberry coulis", "Cream"]
   }
 ];
 
@@ -308,47 +368,8 @@ export default function Menu() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Catering Packages */}
-      <section className="py-16 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif font-bold text-brand-cocoa mb-4">
-              Catering Packages
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Complete catering solutions tailored to your special event
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {packages.map((pkg) => (
-              <div key={pkg.id} className="bg-card rounded-xl p-8 shadow-soft hover:shadow-elegant transition-shadow">
-                <h3 className="text-2xl font-serif font-bold text-brand-cocoa mb-4">{pkg.name}</h3>
-                <p className="text-muted-foreground mb-4">{pkg.description}</p>
-                <div className="text-xl font-semibold text-brand-warm mb-6">{pkg.price}</div>
-                <ul className="space-y-2 mb-8">
-                  {pkg.features.map((feature, index) => (
-                    <li key={index} className="text-sm text-foreground flex items-center">
-                      <span className="w-2 h-2 bg-accent-gradient rounded-full mr-3"></span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Button 
-                  variant="outline" 
-                  className="w-full"
-                  onClick={() => setSelectedPackage(pkg)}
-                >
-                  Learn More
-                </Button>
-              </div>
-            ))}
-          </div>
-
-          {/* Pagination */}
+          {/* Pagination for Menu Items */}
           {totalPages > 1 && (
             <div className="flex justify-center mt-12">
               <Pagination>
@@ -391,6 +412,46 @@ export default function Menu() {
               </Pagination>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Catering Packages */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-serif font-bold text-brand-cocoa mb-4">
+              Catering Packages
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Complete catering solutions tailored to your special event
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {packages.map((pkg) => (
+              <div key={pkg.id} className="bg-card rounded-xl p-8 shadow-soft hover:shadow-elegant transition-shadow">
+                <h3 className="text-2xl font-serif font-bold text-brand-cocoa mb-4">{pkg.name}</h3>
+                <p className="text-muted-foreground mb-4">{pkg.description}</p>
+                <div className="text-xl font-semibold text-brand-warm mb-6">{pkg.price}</div>
+                <ul className="space-y-2 mb-8">
+                  {pkg.features.map((feature, index) => (
+                    <li key={index} className="text-sm text-foreground flex items-center">
+                      <span className="w-2 h-2 bg-accent-gradient rounded-full mr-3"></span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={() => setSelectedPackage(pkg)}
+                >
+                  Learn More
+                </Button>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
