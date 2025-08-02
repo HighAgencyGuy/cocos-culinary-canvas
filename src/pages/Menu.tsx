@@ -134,10 +134,70 @@ const menuItems: MenuItem[] = [
     name: "Crème Brûlée",
     description: "Classic vanilla custard with caramelized sugar crust",
     price: "$15",
-    image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500",
+    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500",
     category: "desserts",
     dietary: ["vegetarian", "gluten-free"],
     ingredients: ["Vanilla beans", "Heavy cream", "Egg yolks", "Sugar", "Caramelized sugar"]
+  },
+  {
+    id: "13",
+    name: "Seared Duck Breast",
+    description: "Pan-seared duck breast with cherry gastrique and roasted root vegetables",
+    price: "$44",
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=500",
+    category: "mains",
+    dietary: ["gluten-free"],
+    ingredients: ["Duck breast", "Cherry gastrique", "Root vegetables", "Fresh thyme", "Red wine reduction"]
+  },
+  {
+    id: "14",
+    name: "Tuna Tartare",
+    description: "Fresh yellowfin tuna with avocado, citrus, and sesame oil",
+    price: "$24",
+    image: "https://images.unsplash.com/photo-1559847844-d724b19e0d7b?w=500",
+    category: "starters",
+    dietary: ["gluten-free"],
+    ingredients: ["Yellowfin tuna", "Avocado", "Citrus", "Sesame oil", "Microgreens"]
+  },
+  {
+    id: "15",
+    name: "Chocolate Lava Cake",
+    description: "Warm chocolate cake with molten center and vanilla ice cream",
+    price: "$17",
+    image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500",
+    category: "desserts",
+    dietary: ["vegetarian"],
+    ingredients: ["Dark chocolate", "Butter", "Eggs", "Flour", "Vanilla ice cream"]
+  },
+  {
+    id: "16",
+    name: "Mediterranean Sea Bass",
+    description: "Grilled sea bass with olive tapenade, tomatoes, and fresh herbs",
+    price: "$40",
+    image: "https://images.unsplash.com/photo-1485921325833-c519f76c4927?w=500",
+    category: "mains",
+    dietary: ["gluten-free"],
+    ingredients: ["Sea bass", "Olive tapenade", "Cherry tomatoes", "Fresh herbs", "Lemon"]
+  },
+  {
+    id: "17",
+    name: "Goat Cheese Crostini",
+    description: "Toasted baguette with creamy goat cheese, honey, and walnuts",
+    price: "$16",
+    image: "https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=500",
+    category: "starters",
+    dietary: ["vegetarian"],
+    ingredients: ["Baguette", "Goat cheese", "Honey", "Walnuts", "Fresh herbs"]
+  },
+  {
+    id: "18",
+    name: "Panna Cotta",
+    description: "Silky vanilla panna cotta with berry compote and mint",
+    price: "$13",
+    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500",
+    category: "desserts",
+    dietary: ["vegetarian", "gluten-free"],
+    ingredients: ["Heavy cream", "Vanilla", "Gelatin", "Berry compote", "Fresh mint"]
   }
 ];
 
@@ -416,7 +476,10 @@ export default function Menu() {
               <Button variant="outline" onClick={() => setSelectedPackage(null)}>
                 Close
               </Button>
-              <Button variant="hero">
+              <Button variant="hero" onClick={() => {
+                setSelectedPackage(null);
+                window.location.href = '/book-us';
+              }}>
                 Request Quote
               </Button>
             </div>
