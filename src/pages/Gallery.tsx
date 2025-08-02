@@ -85,6 +85,54 @@ const galleryImages: GalleryImage[] = [
     category: "dishes",
     event: "Chocolate Soufflé",
     location: "Anniversary Dinner"
+  },
+  {
+    id: "10",
+    src: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600",
+    alt: "Lobster thermidor plating",
+    category: "dishes",
+    event: "Lobster Thermidor",
+    location: "Seaside Gala"
+  },
+  {
+    id: "11",
+    src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600",
+    alt: "Elegant private dining",
+    category: "private",
+    event: "Anniversary Dinner",
+    location: "Private Estate"
+  },
+  {
+    id: "12",
+    src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600",
+    alt: "Wedding cake cutting ceremony",
+    category: "weddings",
+    event: "Wedding Cake Service",
+    location: "Grand Ballroom"
+  },
+  {
+    id: "13",
+    src: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600",
+    alt: "Pan-seared salmon presentation",
+    category: "dishes",
+    event: "Pan-Seared Salmon",
+    location: "Business Lunch"
+  },
+  {
+    id: "14",
+    src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600",
+    alt: "Corporate cocktail hour",
+    category: "corporate",
+    event: "Executive Reception",
+    location: "Sky Lounge"
+  },
+  {
+    id: "15",
+    src: "https://images.unsplash.com/photo-1563379091339-03246963d318?w=600",
+    alt: "Burrata caprese arrangement",
+    category: "dishes",
+    event: "Burrata Caprese",
+    location: "Garden Party"
   }
 ];
 

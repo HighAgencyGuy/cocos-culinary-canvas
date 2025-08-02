@@ -1,27 +1,19 @@
 import { Layout } from "@/components/Layout";
+import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Award, Clock, Users, Heart, Star, ChefHat } from "lucide-react";
 import { Link } from "react-router-dom";
+import heroImage from "@/assets/hero-about.jpg";
 
 const About = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-20 bg-card-gradient">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-brand-cocoa mb-6">
-              The Story Behind
-              <span className="block text-brand-gold">Coco's Pot</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Born from a passion for culinary excellence and a love for bringing people together, 
-              Coco's Pot has been creating unforgettable dining experiences for over 15 years.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="The Story Behind Coco's Pot"
+        subtitle="Born from a passion for culinary excellence and a love for bringing people together, Coco's Pot has been creating unforgettable dining experiences for over 15 years."
+        backgroundImage={heroImage}
+      />
 
       {/* Our Story Section */}
       <section className="py-20">

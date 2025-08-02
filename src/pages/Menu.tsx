@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/modal";
 import { Badge } from "@/components/ui/badge";
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import heroImage from "@/assets/hero-menu.jpg";
 
 interface MenuItem {
@@ -77,6 +78,66 @@ const menuItems: MenuItem[] = [
     category: "desserts",
     dietary: ["vegetarian"],
     ingredients: ["Lemon curd", "Pastry shell", "Fresh berries", "Mint", "Powdered sugar"]
+  },
+  {
+    id: "7",
+    name: "Lobster Thermidor",
+    description: "Classic French lobster dish with brandy, cream, and gruyere cheese",
+    price: "$52",
+    image: "https://images.unsplash.com/photo-1563379091339-03246963d318?w=500",
+    category: "mains",
+    dietary: ["gluten-free"],
+    ingredients: ["Fresh lobster", "Brandy", "Heavy cream", "Gruyere cheese", "Butter"]
+  },
+  {
+    id: "8",
+    name: "Duck Confit Crostini",
+    description: "Slow-cooked duck leg on toasted brioche with fig compote",
+    price: "$22",
+    image: "https://images.unsplash.com/photo-1619221882421-86ad02b74d8d?w=500",
+    category: "starters",
+    dietary: [],
+    ingredients: ["Duck leg", "Brioche", "Fig compote", "Microgreens", "Balsamic reduction"]
+  },
+  {
+    id: "9",
+    name: "Tiramisu",
+    description: "Traditional Italian dessert with coffee-soaked ladyfingers and mascarpone",
+    price: "$12",
+    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500",
+    category: "desserts",
+    dietary: ["vegetarian"],
+    ingredients: ["Ladyfingers", "Espresso", "Mascarpone", "Cocoa powder", "Marsala wine"]
+  },
+  {
+    id: "10",
+    name: "Pan-Seared Salmon",
+    description: "Atlantic salmon with lemon herb butter and roasted vegetables",
+    price: "$38",
+    image: "https://images.unsplash.com/photo-1485921325833-c519f76c4927?w=500",
+    category: "mains",
+    dietary: ["gluten-free"],
+    ingredients: ["Atlantic salmon", "Lemon herb butter", "Asparagus", "Baby potatoes", "Dill"]
+  },
+  {
+    id: "11",
+    name: "Burrata Caprese",
+    description: "Creamy burrata with heirloom tomatoes, basil, and aged balsamic",
+    price: "$19",
+    image: "https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=500",
+    category: "starters",
+    dietary: ["vegetarian", "gluten-free"],
+    ingredients: ["Burrata cheese", "Heirloom tomatoes", "Fresh basil", "Balsamic glaze", "Olive oil"]
+  },
+  {
+    id: "12",
+    name: "Crème Brûlée",
+    description: "Classic vanilla custard with caramelized sugar crust",
+    price: "$15",
+    image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500",
+    category: "desserts",
+    dietary: ["vegetarian", "gluten-free"],
+    ingredients: ["Vanilla beans", "Heavy cream", "Egg yolks", "Sugar", "Caramelized sugar"]
   }
 ];
 
@@ -107,12 +168,24 @@ const packages = [
 export default function Menu() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
-
+  const [selectedPackage, setSelectedPackage] = useState<any>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  const itemsPerPage = 6;
   const categories = ["all", "starters", "mains", "desserts"];
   
   const filteredItems = selectedCategory === "all" 
     ? menuItems 
     : menuItems.filter(item => item.category === selectedCategory);
+    
+  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = filteredItems.slice(startIndex, startIndex + itemsPerPage);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    setCurrentPage(1);
+  };
 
   return (
     <Layout>
@@ -130,7 +203,7 @@ export default function Menu() {
               {categories.map((category) => (
                 <button
                   key={category}
-                  onClick={() => setSelectedCategory(category)}
+                  onClick={() => handleCategoryChange(category)}
                   className={`px-6 py-2 rounded-md text-sm font-medium transition-colors capitalize ${
                     selectedCategory === category
                       ? "bg-brand-cocoa text-brand-cream"
@@ -145,7 +218,7 @@ export default function Menu() {
 
           {/* Menu Items */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredItems.map((item) => (
+            {currentItems.map((item) => (
               <div
                 key={item.id}
                 className="bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-elegant transition-shadow duration-300 group cursor-pointer"
@@ -204,12 +277,60 @@ export default function Menu() {
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" className="w-full">
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={() => setSelectedPackage(pkg)}
+                >
                   Learn More
                 </Button>
               </div>
             ))}
           </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex justify-center mt-12">
+              <Pagination>
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious 
+                      href="#" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (currentPage > 1) setCurrentPage(currentPage - 1);
+                      }}
+                      className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
+                    />
+                  </PaginationItem>
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                    <PaginationItem key={page}>
+                      <PaginationLink
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setCurrentPage(page);
+                        }}
+                        isActive={currentPage === page}
+                      >
+                        {page}
+                      </PaginationLink>
+                    </PaginationItem>
+                  ))}
+                  <PaginationItem>
+                    <PaginationNext 
+                      href="#" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+                      }}
+                      className={currentPage === totalPages ? "pointer-events-none opacity-50" : ""}
+                    />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            </div>
+          )}
         </div>
       </section>
 
@@ -253,6 +374,52 @@ export default function Menu() {
             <Button variant="hero" className="w-full">
               Add to Event Quote
             </Button>
+          </div>
+        )}
+      </Modal>
+
+      {/* Package Details Modal */}
+      <Modal
+        isOpen={!!selectedPackage}
+        onClose={() => setSelectedPackage(null)}
+        title={selectedPackage?.name}
+      >
+        {selectedPackage && (
+          <div className="space-y-6">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-brand-warm mb-4">{selectedPackage.price}</div>
+              <p className="text-muted-foreground text-lg mb-6">{selectedPackage.description}</p>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold text-brand-cocoa mb-4 text-lg">What's Included:</h4>
+              <ul className="space-y-3">
+                {selectedPackage.features.map((feature: string, index: number) => (
+                  <li key={index} className="flex items-start space-x-3">
+                    <span className="w-2 h-2 bg-accent-gradient rounded-full mt-2 flex-shrink-0"></span>
+                    <span className="text-foreground">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-muted/30 rounded-lg p-6">
+              <h4 className="font-semibold text-brand-cocoa mb-3">Perfect For:</h4>
+              <p className="text-muted-foreground">
+                {selectedPackage.id === "wedding" && "Intimate ceremonies to grand celebrations. Our wedding package ensures your special day is unforgettable with personalized menus, elegant presentation, and exceptional service."}
+                {selectedPackage.id === "corporate" && "Business meetings, conferences, and company events. Professional service with dietary accommodations and flexible setup options to match your corporate needs."}
+                {selectedPackage.id === "private" && "Birthday parties, anniversaries, and special celebrations. Enjoy a personalized dining experience with our dedicated team taking care of every detail."}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <Button variant="outline" onClick={() => setSelectedPackage(null)}>
+                Close
+              </Button>
+              <Button variant="hero">
+                Request Quote
+              </Button>
+            </div>
           </div>
         )}
       </Modal>
