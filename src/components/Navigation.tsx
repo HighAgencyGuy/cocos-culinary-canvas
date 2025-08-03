@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/cocopotlogo.jpeg";
 
 const navigationItems = [
   { name: "Home", href: "/" },
@@ -27,8 +28,8 @@ export const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-hero-gradient rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
-              <span className="text-brand-cream font-bold text-lg">C</span>
+            <div className="w-12 h-12 rounded-full border-2 border-brand-gold overflow-hidden">
+              <img src={logo} alt="Coco's Pot Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col">
               <span className="font-serif font-bold text-xl text-brand-cocoa">Coco's Pot</span>
@@ -59,10 +60,10 @@ export const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center space-x-3 text-sm text-muted-foreground">
+            <div className="hidden md:flex items-center space-x-3 text-sm text-muted-foreground">
               <div className="flex items-center space-x-1">
                 <Phone className="h-4 w-4" />
-                <span>(555) 123-COCO</span>
+                <span>+234 814 663 7827</span>
               </div>
             </div>
             <Link to="/book-us">
@@ -103,9 +104,17 @@ export const Navigation = () => {
             ))}
             <div className="pt-4 border-t border-border">
               <div className="space-y-3">
-                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                   <Phone className="h-4 w-4" />
-                  <span>(555) 123-COCO</span>
+                  <span>+234 814 663 7827</span>
+                </div>
+                <div className="flex items-center space-x-3 text-sm text-muted-foreground">
+                  <MessageSquare className="h-4 w-4" />
+                  <span>+234 814 663 7827</span>
+                </div>
+                <div className="flex items-center space-x-3 text-sm text-muted-foreground">
+                  <Mail className="h-4 w-4" />
+                  <span>hello@cocospot.com</span>
                 </div>
                 <Link to="/book-us" onClick={() => setIsOpen(false)}>
                   <Button variant="hero" size="lg" className="w-full">

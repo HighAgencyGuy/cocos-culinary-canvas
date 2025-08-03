@@ -57,7 +57,7 @@ const Index = () => {
               <p className="text-muted-foreground mb-6">
                 Intimate gatherings deserve exceptional cuisine. Our private dining experiences bring restaurant-quality meals to your home.
               </p>
-              <Link to="/menu" className="inline-flex items-center text-brand-cocoa font-medium hover:text-brand-gold transition-colors">
+              <Link to="/book-us" className="inline-flex items-center text-brand-cocoa font-medium hover:text-brand-gold transition-colors">
                 Book Private Chef <ArrowRight className="h-4 w-4 ml-2" />
               </Link>
             </Card>

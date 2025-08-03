@@ -54,7 +54,7 @@ export const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-2 text-sm">
                 <Phone className="h-4 w-4 text-brand-cream/80" />
-                <span className="text-brand-cream/90">(555) 123-COCO</span>
+                <span className="text-brand-cream/90">+234 814 663 7827</span>
               </div>
               <div className="flex items-center space-x-2 text-sm">
                 <Mail className="h-4 w-4 text-brand-cream/80" />
@@ -63,9 +63,8 @@ export const Footer = () => {
               <div className="flex items-start space-x-2 text-sm">
                 <MapPin className="h-4 w-4 text-brand-cream/80 mt-0.5" />
                 <span className="text-brand-cream/90">
-                  123 Culinary Street<br />
-                  Gourmet District<br />
-                  New York, NY 10001
+                  Block 66, flat 1 after Salasi hotel junction<br />
+                  Karu Site, FCT Abuja
                 </span>
               </div>
             </div>

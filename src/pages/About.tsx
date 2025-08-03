@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Award, Clock, Users, Heart, Star, ChefHat } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-about.jpg";
+import founderImage from "@/assets/cocopotceo.png";
 
 const About = () => {
   return (
@@ -46,12 +47,18 @@ const About = () => {
               </Link>
             </div>
             
-            <div className="relative">
-              <div className="bg-hero-gradient rounded-2xl p-8 text-center text-brand-cream">
+            <div className="relative w-full h-[600px]">
+              <img 
+                src={founderImage}
+                alt="Chef Coco"
+                className="w-full h-full object-cover rounded-2xl"
+              />
+              <div className="absolute inset-0 bg-black/40 rounded-2xl"></div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-brand-cream px-8">
                 <ChefHat className="h-20 w-20 mx-auto mb-6 text-brand-gold" />
-                <h3 className="text-2xl font-serif font-bold mb-4">Chef Maria Santos</h3>
-                <p className="text-brand-cream/90 mb-6">Founder & Executive Chef</p>
-                <p className="text-sm text-brand-cream/80 leading-relaxed">
+                <h3 className="text-4xl font-serif font-bold mb-4">Chef Coco</h3>
+                <p className="text-xl text-brand-cream/90 mb-6">Founder & Executive Chef</p>
+                <p className="text-lg text-brand-cream/80 leading-relaxed max-w-2xl">
                   "Cooking is not just about feeding people; it's about creating experiences 
                   that bring families and friends together around the table."
                 </p>

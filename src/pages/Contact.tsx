@@ -59,8 +59,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-brand-cocoa mb-1">Phone</h3>
-                    <p className="text-muted-foreground">(555) 123-COCO</p>
-                    <p className="text-sm text-muted-foreground">Available Mon-Fri, 9AM-6PM</p>
+                    <p className="text-muted-foreground">+234 814 663 7827</p>
+                    <p className="text-sm text-muted-foreground">Available 24/7</p>
                   </div>
                 </div>
 
@@ -81,8 +81,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-brand-cocoa mb-1">WhatsApp</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-COCO</p>
-                    <p className="text-sm text-muted-foreground">Quick responses during business hours</p>
+                    <p className="text-muted-foreground">+234 814 663 7827</p>
+                    <p className="text-sm text-muted-foreground">Quick responses 24/7</p>
                   </div>
                 </div>
 
@@ -93,9 +93,8 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-brand-cocoa mb-1">Location</h3>
                     <p className="text-muted-foreground">
-                      123 Culinary Street<br />
-                      Gourmet District<br />
-                      New York, NY 10001
+                      Block 66, flat 1 after Salasi hotel junction<br />
+                      Karu Site, FCT Abuja
                     </p>
                   </div>
                 </div>
